@@ -19,11 +19,11 @@ function Header() {
   );
 }
 
-function CoreConcept() {
+function CoreConcept(props) {
   return <li>
-    <img src="..." alt="..." />
-    <h3>Title</h3>
-    <p>Description</p>
+    <img src={props.img} alt={props.title} />
+    <h3>{props.title}</h3>
+    <p>{props.description}</p>
   </li>
 }
 
@@ -34,7 +34,11 @@ function App() {
       <main>
         <section id='core-concepts'>
           <li>
-            <CoreConcept />
+            <CoreConcept 
+              title="Component" 
+              description="Here's a full tutorial of UI" 
+              img={reactImg}
+            />
             <CoreConcept />
             <CoreConcept />
             <CoreConcept />
