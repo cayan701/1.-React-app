@@ -1,14 +1,8 @@
 import './App.css';
 import { CORE_CONCEPTS } from './data';
 import Header from './components/Header';
-
-function CoreConcept(props) {
-  return <li>
-    <img src={props.img} alt={props.title} />
-    <h1>{props.title}</h1>
-    <p>{props.description}</p>
-  </li>
-}
+import CoreConcept from './components/CoreConcept';
+import TabButtons from './components/TabButtons';
 
 function App() {
   return (
@@ -32,6 +26,12 @@ function App() {
               {...CORE_CONCEPTS[3]}
             />
           </li>
+        </section>
+        <section id='examples'>
+          <h2>Examples</h2>
+          <menu>
+            <TabButtons>Components</TabButtons>
+          </menu>
         </section>
       </main>
     </div>
