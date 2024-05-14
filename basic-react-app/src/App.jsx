@@ -1,10 +1,19 @@
+import { useState } from 'react';
+
 import './App.css';
 import { CORE_CONCEPTS } from './data';
 import Header from './components/Header';
 import CoreConcept from './components/CoreConcept';
 import TabButtons from './components/TabButtons';
+import React from 'react';
 
 function App() {
+  let tabContent = 'Please click a button';
+
+  function handleClick(selectedButton) {
+    tabContent = selectedButton;
+  } 
+
   return (
     <div>
       <Header />
@@ -30,11 +39,12 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButtons>Components</TabButtons>
-            <TabButtons>JSX</TabButtons>
-            <TabButtons>Props</TabButtons>
-            <TabButtons>React State</TabButtons>
+            <TabButtons onSelect={() => handleClick('components')}>Components</TabButtons>
+            <TabButtons onSelect={() => handleClick('JSX')}>JSX</TabButtons>
+            <TabButtons onSelect={() => handleClick('Props')}>Props</TabButtons>
+            <TabButtons onSelect={() => handleClick('State')}>React State</TabButtons>
           </menu>
+          {tabContent}
         </section>
       </main>
     </div>
