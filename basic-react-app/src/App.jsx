@@ -8,10 +8,10 @@ import TabButtons from './components/TabButtons';
 import React from 'react';
 
 function App() {
-  let tabContent = 'Please click a button';
+  const [ selectedTopic, setSelectedTopic ] = useState('Hey');
 
   function handleClick(selectedButton) {
-    tabContent = selectedButton;
+    setSelectedTopic(selectedButton);
   } 
 
   return (
