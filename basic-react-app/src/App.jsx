@@ -8,20 +8,23 @@ import TabButtons from './components/TabButtons';
 import React from 'react';
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState('Hey');
+  const [ selectedTopic, setSelectedTopic ] = useState('Please select a button');
 
   function handleClick(selectedButton) {
     //selectedButton => 'components', 'JSX', 'props', 'state';
 
     setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
   } 
+
+  console.log('App started');
 
   return (
     <div>
       <Header />
       <main>
         <section id='core-concepts'>
-          <li>
+          <ul>
             <CoreConcept 
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
@@ -36,7 +39,7 @@ function App() {
             <CoreConcept 
               {...CORE_CONCEPTS[3]}
             />
-          </li>
+          </ul>
         </section>
         <section id='examples'>
           <h2>Examples</h2>
@@ -46,7 +49,7 @@ function App() {
             <TabButtons onSelect={() => handleClick('Props')}>Props</TabButtons>
             <TabButtons onSelect={() => handleClick('State')}>React State</TabButtons>
           </menu>
-          {tabContent}
+          {selectedTopic}
         </section>
       </main>
     </div>
